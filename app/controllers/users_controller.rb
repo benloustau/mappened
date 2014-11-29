@@ -22,12 +22,8 @@ class UsersController < ApplicationController
         marker.lat current_user.latitude
         marker.lng current_user.longitude
       end
-      @companies = Company.all
-      @company = Gmaps4rails.build_markers(@companies) do |company, marker|
-      marker.lat company.latitude
-      marker.lng company.longitude
     end
-  end
+      
 
 	private
 
