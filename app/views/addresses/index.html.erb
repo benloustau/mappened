@@ -1,0 +1,25 @@
+<div><h1>New addresses</h1>
+
+<%= form_for ([current_user, @address]) do |f| %>
+	<%= f.label :address %> <br />
+	<%= f.text_field :address %><br />
+	<%= f.label :address_title %> <br />
+	<%= f.text_field :address_title %> <br />
+	<%= f.submit "Save Address" %>
+<%end%>
+
+
+<%= link_to 'Back', edit_user_path(current_user), method: :get, :style => "color:black"  %></div>
+
+<div>
+
+	<%= content_tag_for :div, current_user do %>
+	
+	<%= content_tag :h3, current_user.title %>
+	<%= content_tag :p, "(#{current_user.latitude}, #{current_user.longitude})" %>
+
+
+<%end%>
+<%= content_tag :hr %>
+
+</div>

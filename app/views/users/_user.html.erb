@@ -1,0 +1,8 @@
+<%= content_tag_for :div, current_user do %>
+	
+	<%= content_tag :h3, current_user.title %>
+	<%= content_tag :p, "(#{current_user.latitude}, #{current_user.longitude})" %>
+
+
+<%end%>
+<%= content_tag :hr %>

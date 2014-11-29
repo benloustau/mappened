@@ -1,0 +1,20 @@
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+<%= content_tag :hr %>
+
+<%= render current_user  %>
+
+<%= link_to 'Manage Addresses', user_addresses_path(current_user, @address), method: :get, :style => "color:black" %>
+
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete, :style => "color:black"  %>
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+ markers = handler.addMarkers(<%=raw @hash.to_json %>),(<%= raw @company.to_json%>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
